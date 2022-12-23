@@ -24,6 +24,7 @@ import { PageZimloComponent } from './pages/page-zimlo/page-zimlo.component';
 import { CardDoneComponent } from './pages/components/card-done/card-done.component';
 import { CardTodoComponent } from './pages/components/card-todo/card-todo.component';
 import { ZimloNavbarComponent } from './pages/components/zimlo-navbar/zimlo-navbar.component';
+import { CardPlanComponent } from './pages/components/card-plan/card-plan.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ZimloNavbarComponent } from './pages/components/zimlo-navbar/zimlo-navb
     PageZimloComponent,
     CardDoneComponent,
     CardTodoComponent,
-    ZimloNavbarComponent
+    ZimloNavbarComponent,
+    CardPlanComponent
   ],
   imports: [
     BrowserModule,

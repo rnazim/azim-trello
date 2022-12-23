@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-zimlo.component.css']
 })
 export class PageZimloComponent {
+  
 
 }
