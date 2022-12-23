@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { regExpEscape } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { IZimlo, PLAN } from '../interfaces/i-zimlo';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { IZimlo, PLAN } from '../interfaces/i-zimlo';
 })
 export class ZimloService{
   public isShow: boolean = false;
-  collection: string = "tasks";
+  collection: string = "Tasks";
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -18,5 +19,15 @@ export class ZimloService{
         status: PLAN
       } as IZimlo;
       this.firestore.collection(this.collection).add(payload);
+  }
+
+  all(status: string) {
+    return this.firestore.collection(
+      this.collection,
+      ref => ref.where('status', '==', status)).snapshotChanges();
+  }
+
+  update(id: string, task: IZimlo) {
+    return this.firestore.doc(`${this.collection}/` + id).update(task);
   }
 }
