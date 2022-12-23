@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-header">Plan</div>
+        <div class="card-body">
+            <div *ngFor="let t of tasks" class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ t.title }}</h5>
+                    <p class="card-content">{{ t.description }}</p>
+                    <div ngbDropdown class="d-inline-block">
+                        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                            ...
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem (click)="t.status = statusTodo; onUpdate(t.id, t)">TODO</button>
+                            <button ngbDropdownItem (click)="t.status = statusDone; onUpdate(t.id, t)">DONE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
