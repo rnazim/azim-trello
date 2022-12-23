@@ -20,11 +20,19 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PageStudentListComponent } from './pages/page-student-list/page-student-list.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PageZimloComponent } from './pages/page-zimlo/page-zimlo.component';
+import { CardDoneComponent } from './pages/components/card-done/card-done.component';
+import { CardTodoComponent } from './pages/components/card-todo/card-todo.component';
+import { ZimloNavbarComponent } from './pages/components/zimlo-navbar/zimlo-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageStudentListComponent
+    PageStudentListComponent,
+    PageZimloComponent,
+    CardDoneComponent,
+    CardTodoComponent,
+    ZimloNavbarComponent
   ],
   imports: [
     BrowserModule,
