@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-4">
+            <div class="card">
+                <h5 class="card-header">New Student</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="mb-3">
+                            <label class="form-label">FirstName</label>
+                            <input type="text" [(ngModel)]="student.firstName" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">LastName</label>
+                            <input type="text" [(ngModel)]="student.lastName" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" [(ngModel)]="student.age" class="form-control"/>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="mt-3 mb-3">
+                            <button class="btn btn-primary" (click)="onCreateStudent()">Save</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 mt-4">
+            <div class="card">
+                <h5 class="card-header">Student</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let s of students">
+                            <td><input class="form-control" [(ngModel)]="s.firstName" type="text"></td>
+                            <td><input class="form-control" [(ngModel)]="s.lastName" type="text" ></td>
+                            <td><input class="form-control" [(ngModel)]="s.age" type="text" ></td>
+                            <td>
+                                <div ngbDropdown class="d-inline-block">
+                                    <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                                        Action
+                                    </button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button ngbDropdownItem (click)="onUpdateStudent(s.id, s)">Update</button>
+                                        <button ngbDropdownItem (click)="onDeleteStudent(s.id)">Delete</button>
+                                    </div>
+                                </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
